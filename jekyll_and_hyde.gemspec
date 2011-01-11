@@ -6,11 +6,11 @@ Gem::Specification.new do |s|
   s.name        = "jekyll_and_hyde"
   s.version     = JekyllAndHyde::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Jingwen Owen Ou"]
+  s.email       = ["owen@owenou.com"]
+  s.homepage    = "http://github.com/jingweno/jekyll_and_hyde"
+  s.summary     = %q{A simple HTML presentation generator based on jekyll and slippy.}
+  s.description = %q{jekyll_and_hyde is a simple HTML presentation generator based on jekyll(https://github.com/mojombo/jekyll) and slippy(https://github.com/Seldaek/slippy).}
 
   s.rubyforge_project = "jekyll_and_hyde"
 
