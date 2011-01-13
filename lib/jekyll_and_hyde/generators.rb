@@ -2,12 +2,13 @@ module JekyllAndHyde
   module Generators
     autoload :New, 'jekyll_and_hyde/generators/new'
 
-    class GroupTask < Thor::Group; end
+    class GroupTask < Thor::Group;
+    end
 
     class << self
       def invoke(task_name, *args)
         task = find_task_by(task_name)
-        task.invoke("jekyll_and_hyde:generators:#{task_name}", args) unless task.nil?
+        task.invoke(task_to_invoke(task_name), args) unless task.nil?
       end
 
       def find_task_by(task_name)
@@ -17,6 +18,10 @@ module JekyllAndHyde
         else
           nil
         end
+      end
+
+      def task_to_invoke(task_name)
+        "jekyll_and_hyde:generators:#{task_name}"
       end
     end
   end

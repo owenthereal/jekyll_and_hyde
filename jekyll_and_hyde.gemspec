@@ -20,8 +20,11 @@ Gem::Specification.new do |s|
   s.add_development_dependency('cucumber')
   s.add_development_dependency('fakefs')
 
-  s.files         = `git ls-files`.split("\n")
-  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  #s.files          = Dir['lib/**/*.rb'] + Dir['bin/*'] + Dir['[A-Z]*'] + Dir['spec/**/*']
+  #s.test_files     = Dir['spec/**/*']
+  #s.executables    = Dir['bin/*']
+  #s.files         = `git ls-files`.split("\n")
+  #s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  #s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 end
