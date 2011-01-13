@@ -1,3 +1,6 @@
-module JekyllAndHyde
-  # Your code goes here...
-end
+require 'rubygems'
+require 'thor'
+require 'thor/group'
+
+require 'jekyll_and_hyde/version'
+require 'jekyll_and_hyde/generators'
