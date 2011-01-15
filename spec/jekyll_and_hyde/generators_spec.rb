@@ -11,7 +11,7 @@ module JekyllAndHyde
     end
 
     describe "#find_task_by" do
-      it "should find task by task name" do
+      it "should create a task if it finds it" do
         task_class = mock("a_task_class")
         task_class.stub(:new)
         JekyllAndHyde::Generators.stub(:const_get).with(:TaskName).and_return(task_class)
@@ -24,7 +24,7 @@ module JekyllAndHyde
     end
 
     describe "#invoke" do
-      it "should invoke the generator task with the given name" do
+      it "should invoke the task with the given name" do
         args = anything()
         task = mock("a_task")
         task.stub(:invoke)

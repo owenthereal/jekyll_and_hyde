@@ -1,14 +1,10 @@
 module JekyllAndHyde
   module Generators
     class New < GroupTask
-      desc "copy configuration files"
+      desc "Generates a skeletal jekyll_and_hyde installation"
 
-      def config
-        puts "hello world"
-      end
-
-      def two
-        puts "two"
+      def make_installation_dir
+        empty_directory @installation_dir
       end
     end
   end
