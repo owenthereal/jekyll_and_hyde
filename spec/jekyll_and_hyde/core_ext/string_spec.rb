@@ -1,9 +1,11 @@
+require 'spec_helper'
+
 describe String do
   describe "#titlecase" do
     it "should return title case of any string" do
-      "task_name".titlecase.should == "TaskName"
-      "Task-name".titlecase.should == "TaskName"
-      "task_Name".titlecase.should == "TaskName"
+      ["task_name", "Task-name", "task_Name"].each do |name|
+        name.titlecase.should == "TaskName"
+      end
     end
   end
 end
