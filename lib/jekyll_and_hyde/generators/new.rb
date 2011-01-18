@@ -1,10 +1,13 @@
 module JekyllAndHyde
   module Generators
-    class New < GroupTask
-      desc "Generates a skeletal jekyll_and_hyde installation"
+    class New < Thor::Group
+      include Thor::Actions
 
-      def make_installation_dir
-        empty_directory @installation_dir
+      argument :app_path, :type => :string, :required => true, :desc => "The app path to generate the skeletal installation"
+      desc "Generate a skeletal jekyll_and_hyde installation in [APP_PATH]"
+
+      def make_app_path_dir
+        empty_directory app_path
       end
     end
   end
