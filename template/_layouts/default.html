@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<title>{{ site.title }}</title>
+	{% if site.author %}<meta name="author" content="{{ site.author }}" />{% endif %}
+	{% if site.email %}<meta name="email" content="{{ site.email }}" />{% endif %}
+	{% if site.venue %}<meta name="author" content="{{ site.venue }}" />{% endif %}
+	{% if site.date %}<meta name="date" content="{{ site.date }}" />{% endif %}
+
+	<!-- Slippy structural styles -->
+	<link type="text/css" rel="stylesheet" href="slippy/src/slippy-0.9.0.css"/>
+	<!-- Syntax highlighting -->
+	<link type="text/css" rel="stylesheet" href="stylesheets/highlighter.css"/>
+	<!-- Slippy theme -->
+	<link type="text/css" rel="stylesheet" href="stylesheets/slippy-pure-big-font.css"/>
+
+	<!-- Slippy core file and dependencies -->
+	<script type="text/javascript" src="slippy/src/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="slippy/src/jquery.history.js"></script>
+	<script type="text/javascript" src="slippy/src/slippy-0.9.0.js"></script>
+
+	<!-- Slippy init code -->
+	<script type="text/javascript">
+	$(function() {
+		$(".slide").slippy({});
+	});
+	</script>
+</head>
+<body>
+	{{ content }}
+</body>
+</html>
