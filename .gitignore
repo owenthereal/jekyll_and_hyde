@@ -3,5 +3,5 @@ pkg/*
 *.gem
 .bundle
 Gemfile.lock
-jekyll_and_hyde.iml
+*.iml
 .idea
