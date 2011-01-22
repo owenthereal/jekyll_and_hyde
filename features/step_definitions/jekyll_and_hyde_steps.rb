@@ -1,11 +1,9 @@
-require 'fakefs/safe'
-
 Before do
-  FakeFS.activate!
+  FileUtils.mkdir_p(DESTINATION_ROOT)
 end
 
 After do
-  FakeFS.deactivate!
+  FileUtils.rm_rf(DESTINATION_ROOT)
 end
 
 Given /^the jekyll_and_hyde gem installed$/ do
@@ -13,9 +11,16 @@ end
 
 When /^I run the "jh ([^"]*) ([^"]*)" command$/ do |command, parameters|
   @command = JekyllAndHyde::Generators.find_task_class(command).new(parameters.split)
+  @command.destination_root = DESTINATION_ROOT
   @command.invoke("jekyll_and_hyde:generators:#{command}")
 end
 
-Then /^I should have a folder named "([^"]*)" created$/ do |dir_name|
-  File.should be_directory(dir_name)
+Then /^I should have a folder named "([^"]*)" created$/ do |folder_name|
+  File.should be_directory(File.join(DESTINATION_ROOT, folder_name))
+end
+
+And /^I should have template files\/folders "([^"]*)" inside folder "([^"]*)"$/ do |template_files, folder_name|
+  template_files.split(',').map { |split| split.strip }.each do |template_file|
+    File.should be_exist(File.join(DESTINATION_ROOT, folder_name, template_file))
+  end
 end
