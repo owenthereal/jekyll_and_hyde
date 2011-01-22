@@ -3,6 +3,7 @@ module JekyllAndHyde
     class New < Thor::Group
       include Thor::Actions
 
+      JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO = 'git://github.com/jingweno/jekyll_and_hyde_template.git'
       SLIPPY_GIT_REPO = 'git://github.com/jingweno/slippy.git'
 
       argument :app_path, :type => :string, :required => true, :desc => "The app path to generate the skeletal installation"
@@ -14,8 +15,12 @@ module JekyllAndHyde
         empty_directory app_path
       end
 
-      def copy_template_files
-        directory('template', app_path)
+      # TODO: pass in the url as parameter
+      def git_clone_template
+        inside app_path do
+          run "git clone #{JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO} ."
+          remove_file('.git')
+        end
       end
 
       def git_init
