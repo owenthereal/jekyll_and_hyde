@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "jekyll_and_hyde"
+require "jekyll_and_hyde/version"
 
 Gem::Specification.new do |s|
   s.name        = "jekyll_and_hyde"
@@ -22,9 +22,9 @@ Gem::Specification.new do |s|
 
   s.files          = Dir['lib/**/*.rb'] + Dir['bin/*'] + Dir['[A-Z]*'] + Dir['spec/**/*']
   s.test_files     = Dir['spec/**/*']
-  s.executables    = Dir['bin/*']
+#  s.executables    = Dir['bin/*']
   #s.files         = `git ls-files`.split("\n")
   #s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
-  #s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+  s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 end
