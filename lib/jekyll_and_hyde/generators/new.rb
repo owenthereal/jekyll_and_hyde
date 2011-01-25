@@ -2,8 +2,8 @@ module JekyllAndHyde
   class New < Thor::Group
     include Thor::Actions
 
-    JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO = 'git://github.com/jingweno/jekyll_and_hyde_template.git'
-    SLIPPY_GIT_REPO = 'git://github.com/jingweno/slippy.git'
+    JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO = 'https://github.com/jingweno/jekyll_and_hyde_template.git'
+    SLIPPY_GIT_REPO = 'https://github.com/jingweno/slippy.git'
 
     argument :app_path, :type => :string, :required => true, :desc => "The app path to generate the skeletal installation"
     desc "Generate a skeletal jekyll_and_hyde installation in [APP_PATH]"

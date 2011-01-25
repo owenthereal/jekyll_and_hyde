@@ -3,7 +3,7 @@ $thor_runner = true
 class JekyllAndHyde::Runner < Thor
   def help(meth = nil)
     if meth && !self.respond_to?(meth)
-      klass, task = JekyllAndHyde::Generators.find_class_and_task_by_namespace(meth)
+      klass, task = JekyllAndHyde::Util.find_class_and_task_by_namespace(meth)
       klass.start(["-h", task].compact, :shell => self.shell)
     else
       super
@@ -35,7 +35,7 @@ class JekyllAndHyde::Runner < Thor
 
   def method_missing(meth, *args)
     meth = meth.to_s
-    klass, task = JekyllAndHyde::Generators.find_class_and_task_by_namespace(meth)
+    klass, task = JekyllAndHyde::Util.find_class_and_task_by_namespace(meth)
     args.unshift(task) if task
     klass.start(args, :shell => self.shell)
   end
