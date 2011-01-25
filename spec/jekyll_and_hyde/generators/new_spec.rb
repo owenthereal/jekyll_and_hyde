@@ -7,7 +7,7 @@ module JekyllAndHyde
       include FakeFS::SpecHelpers
 
       before(:each) do
-        @new_generator = JekyllAndHyde::Generators::New.new(["app_path"], {}, {})
+        @new_generator = JekyllAndHyde::New.new(["app_path"], {}, {})
       end
 
       describe "#make_app_path_dir" do

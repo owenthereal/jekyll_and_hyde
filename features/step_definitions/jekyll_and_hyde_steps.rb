@@ -10,9 +10,9 @@ Given /^the jekyll_and_hyde gem installed$/ do
 end
 
 When /^I run the "jh ([^"]*) ([^"]*)" command$/ do |command, parameters|
-  @command = JekyllAndHyde::Generators.find_task_class(command).new(parameters.split)
+  @command = JekyllAndHyde::Util.find_task_class(command).new(parameters.split)
   @command.destination_root = DESTINATION_ROOT
-  @command.invoke("#{JekyllAndHyde::Generators.namespace}:#{command}")
+  @command.invoke("#{JekyllAndHyde.namespace}:#{command}")
 end
 
 Then /^I should have a folder named "([^"]*)" created$/ do |folder_name|

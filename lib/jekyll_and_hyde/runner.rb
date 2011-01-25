@@ -1,6 +1,15 @@
 $thor_runner = true
 
 class JekyllAndHyde::Runner < Thor
+  def help(meth = nil)
+    if meth && !self.respond_to?(meth)
+      klass, task = JekyllAndHyde::Generators.find_class_and_task_by_namespace(meth)
+      klass.start(["-h", task].compact, :shell => self.shell)
+    else
+      super
+    end
+  end
+
   desc "list [SEARCH]", "List the available jekyll_and_hyde tasks (--substring means .*SEARCH)"
   method_options :substring => :boolean, :group => :string, :all => :boolean, :debug => :boolean
 
@@ -13,7 +22,7 @@ class JekyllAndHyde::Runner < Thor
       (options[:all] || k.group == group) && k.namespace =~ search
     end
 
-    display_klasses(false, false, klasses)
+    display_klasses(klasses)
   end
 
   desc "version", "Show jekyll_and_hyde version"
@@ -26,8 +35,7 @@ class JekyllAndHyde::Runner < Thor
 
   def method_missing(meth, *args)
     meth = meth.to_s
-    meth = "#{JekyllAndHyde::Generators.namespace}:#{meth}" unless meth.include?(':')
-    klass, task = Thor::Util.find_class_and_task_by_namespace(meth)
+    klass, task = JekyllAndHyde::Generators.find_class_and_task_by_namespace(meth)
     args.unshift(task) if task
     klass.start(args, :shell => self.shell)
   end
@@ -39,11 +47,9 @@ class JekyllAndHyde::Runner < Thor
   # Display information about the given klasses. If with_module is given,
   # it shows a table with information extracted from the yaml file.
   #
-  def display_klasses(with_modules=false, show_internal=false, klasses=Thor::Base.subclasses)
-    klasses -= [Thor, Thor::Runner, Thor::Group] unless show_internal
-
+  def display_klasses(klasses=Thor::Base.subclasses)
+    klasses -= [Thor, Thor::Runner, Thor::Group]
     raise Error, "No Thor tasks available" if klasses.empty?
-    show_modules if with_modules && !thor_yaml.empty?
 
     list = Hash.new { |h, k| h[k] = [] }
     groups = klasses.select { |k| k.ancestors.include?(Thor::Group) }
@@ -53,6 +59,7 @@ class JekyllAndHyde::Runner < Thor
 
     # Get classes which inherit from Thor::Base
     groups.map! { |k| k.printable_tasks(false).first }
+
     list["root"] = groups
 
     # Order namespaces with default coming first
