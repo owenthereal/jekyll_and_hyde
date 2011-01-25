@@ -12,7 +12,7 @@ end
 When /^I run the "jh ([^"]*) ([^"]*)" command$/ do |command, parameters|
   @command = JekyllAndHyde::Generators.find_task_class(command).new(parameters.split)
   @command.destination_root = DESTINATION_ROOT
-  @command.invoke("jekyll_and_hyde:generators:#{command}")
+  @command.invoke("#{JekyllAndHyde::Generators.namespace}:#{command}")
 end
 
 Then /^I should have a folder named "([^"]*)" created$/ do |folder_name|

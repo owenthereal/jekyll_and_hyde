@@ -17,22 +17,34 @@ module JekyllAndHyde
 
       # TODO: pass in the url as parameter
       def git_clone_template
-        inside app_path do
+        inside_app_path do
           run "git clone #{JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO} ."
           remove_file('.git')
         end
       end
 
       def git_init
-        inside app_path do
+        inside_app_path do
           run "git init"
         end
       end
 
       def add_slippy_git_submodule
-        inside app_path do
+        inside_app_path do
           run "git submodule add #{SLIPPY_GIT_REPO}"
         end
+      end
+
+      def git_add_all
+        inside_app_path do
+          run "git add ."
+        end
+      end
+
+      private
+
+      def inside_app_path(config = {}, &block)
+        inside app_path, config, &block
       end
     end
   end
