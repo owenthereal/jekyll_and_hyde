@@ -49,7 +49,7 @@ class JekyllAndHyde::Runner < Thor
   #
   def display_klasses(klasses=Thor::Base.subclasses)
     klasses -= [Thor, Thor::Runner, Thor::Group]
-    raise Error, "No Thor tasks available" if klasses.empty?
+    raise Error, "No JekyllAndHyde tasks available" if klasses.empty?
 
     list = Hash.new { |h, k| h[k] = [] }
     groups = klasses.select { |k| k.ancestors.include?(Thor::Group) }
