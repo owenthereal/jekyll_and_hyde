@@ -9,13 +9,13 @@ end
 Given /^the jekyll_and_hyde gem installed$/ do
 end
 
-When /^I run the "jh ([^"]*)" command$/ do |parameters|
+When /^I run the "jh ([^"]*)" command inside folder "([^"]*)"$/ do |parameters, folder|
   parameters = parameters.split.map(&:strip)
   task = parameters.shift
   args, opts = Thor::Options.split(parameters)
 
   @task = JekyllAndHyde::Util.find_task_class(task).new(args, opts)
-  @task.destination_root = DESTINATION_ROOT
+  @task.destination_root = File.join(DESTINATION_ROOT, folder)
   @task.invoke(JekyllAndHyde.to_namespace(task))
 end
 
@@ -32,4 +32,11 @@ end
 Then /^I should have a git branch named "([^"]*)" created in folder "([^"]*)"$/ do |branch_name, folder_name|
   output = IO.popen("cd #{File.join(DESTINATION_ROOT, folder_name)} && git branch")
   output.readlines.first.include?(branch_name)
+end
+
+Then /^I should have a file named "([^"]*)" prefixed with timestamp created in posts folder "([^"]*)"$/ do |file_name, folder_name|
+  posts_folder = Dir[File.join(DESTINATION_ROOT, folder_name, "**", "*.*")]
+  posts_folder.should have(1).file
+  post_file_name = posts_folder.first.scan(/\d\d\d\d-\d\d-\d\d-\d\d-\d\d-\d\d-(.*)/).flatten.first
+  post_file_name.should == file_name
 end
