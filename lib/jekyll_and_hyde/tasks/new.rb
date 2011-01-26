@@ -1,9 +1,5 @@
 module JekyllAndHyde
-  class New < Thor::Group
-    include JekyllAndHyde::ThorExt
-    include Thor::Actions
-    include JekyllAndHyde::Actions
-
+  class New < JekyllAndHyde::Group
     JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO = 'git://github.com/jingweno/jekyll_and_hyde_template.git'
     SLIPPY_GIT_REPO = 'git://github.com/jingweno/slippy.git'
 
@@ -47,6 +43,7 @@ module JekyllAndHyde
           create_github_page_branch()
           say
           print_next_steps()
+          say
         end
       end
     end
