@@ -5,7 +5,8 @@ module JekyllAndHyde
     end
 
     def to_namespace(str)
-      "#{namespace}:#{str}" unless str.include?(':')
+      str = "#{namespace}:#{str}" unless str.include?(':')
+      str
     end
   end
 end
