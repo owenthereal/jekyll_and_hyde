@@ -1,5 +1,6 @@
 module JekyllAndHyde
   class New < Thor::Group
+    include JekyllAndHyde::ThorExt
     include Thor::Actions
     include JekyllAndHyde::Actions
 
@@ -8,7 +9,7 @@ module JekyllAndHyde
 
     argument :app_path, :type => :string, :required => true, :desc => "The app path to generate the skeletal installation"
     class_option :github, :type => :boolean, :desc => "Create branching information for a GitHub project page, details in http://pages.github.com/."
-    desc "Generate a skeletal jekyll_and_hyde installation in [APP_PATH]"
+    desc "Generate a skeletal jekyll_and_hyde installation in [APP_PATH]."
 
     def make_app_path_dir
       empty_directory app_path

@@ -11,15 +11,11 @@ class JekyllAndHyde::Runner < Thor
   end
 
   desc "list [SEARCH]", "List the available jekyll_and_hyde tasks (--substring means .*SEARCH)"
-  method_options :substring => :boolean, :group => :string, :all => :boolean, :debug => :boolean
 
   def list(search="")
-    search = ".*#{search}" if options["substring"]
-    search = /^#{search}.*/i
-    group = options[:group] || "standard"
-
+    search = /^.*#{search}.*/i
     klasses = Thor::Base.subclasses.select do |k|
-      (options[:all] || k.group == group) && k.namespace =~ search
+      k.namespace =~ search
     end
 
     display_klasses(klasses)
