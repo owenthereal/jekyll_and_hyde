@@ -1,11 +1,15 @@
 module JekyllAndHyde
   class Generate < JekyllAndHyde::Group
     argument :title, :type => :string, :required => true, :desc => "The title of the slide."
-    class_option :format, :type => :string, :default => 'markdown', :desc => 'The format of the slide. It can be "markdown" or "textile".'
+    class_option :format, :type => :string, :default => 'markdown', :desc => 'The format of the slide. It supports markdown and textile.'
     desc "Generate a slide using the defined template."
 
+    SUPPORT_FORMATS = %W{markdown md textile}
+
     def create_slide
-      create_file File.join("_posts", "#{timestamp}-#{title}.#{options[:format]}")
+      format = options[:format]
+      raise "Unsupport format #{format}, --format=#{SUPPORT_FORMATS.join(",")}." unless SUPPORT_FORMATS.include?(format)
+      create_file File.join("_posts", "#{timestamp}-#{title}.#{format}")
     end
 
     private

@@ -4,7 +4,7 @@ class JekyllAndHyde::Runner < Thor
   def help(meth = nil)
     if meth && !self.respond_to?(meth)
       klass, task = JekyllAndHyde::Util.find_class_and_task_by_namespace(meth)
-      klass.start(["-h", task].compact, :shell => self.shell)
+      start_task(klass, task, ["-h", task].compact)
     else
       super
     end
@@ -30,10 +30,17 @@ class JekyllAndHyde::Runner < Thor
   private
 
   def method_missing(meth, *args)
-    meth = meth.to_s
-    klass, task = JekyllAndHyde::Util.find_class_and_task_by_namespace(meth)
+    klass, task = JekyllAndHyde::Util.find_class_and_task_by_namespace(meth.to_s)
     args.unshift(task) if task
-    klass.start(args, :shell => self.shell)
+    start_task(klass, task, args)
+  end
+
+  def start_task(klass, task, args)
+    if klass.nil?
+      say "Don't know how to build task '#{task.split(":").last}'."
+    else
+      klass.start(args, :shell => self.shell)
+    end
   end
 
   def self.banner(task, all = false, subcommand = false)
