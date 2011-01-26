@@ -16,7 +16,7 @@ When /^I run the "jh ([^"]*)" command$/ do |parameters|
 
   @task = JekyllAndHyde::Util.find_task_class(task).new(args, opts)
   @task.destination_root = DESTINATION_ROOT
-  @task.invoke("#{JekyllAndHyde.namespace}:#{task}")
+  @task.invoke(JekyllAndHyde.to_namespace(task))
 end
 
 Then /^I should have a folder named "([^"]*)" created$/ do |folder_name|

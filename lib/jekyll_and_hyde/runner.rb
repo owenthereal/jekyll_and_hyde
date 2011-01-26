@@ -13,7 +13,7 @@ class JekyllAndHyde::Runner < Thor
   desc "list [SEARCH]", "List the available jekyll_and_hyde tasks (--substring means .*SEARCH)"
 
   def list(search="")
-    search = /^.*#{search}.*/i
+    search = /^.*#{JekyllAndHyde.to_namespace(search)}.*/i
     klasses = Thor::Base.subclasses.select do |k|
       k.namespace =~ search
     end

@@ -1,8 +1,8 @@
 module JekyllAndHyde
   class New < Thor::Group
-    include JekyllAndHyde::ThorExt
     include Thor::Actions
     include JekyllAndHyde::Actions
+    include JekyllAndHyde::ThorExt
 
     JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO = 'git://github.com/jingweno/jekyll_and_hyde_template.git'
     SLIPPY_GIT_REPO = 'git://github.com/jingweno/slippy.git'
