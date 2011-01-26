@@ -44,7 +44,7 @@ class JekyllAndHyde::Runner < Thor
   # it shows a table with information extracted from the yaml file.
   #
   def display_klasses(klasses=Thor::Base.subclasses)
-    klasses -= [Thor, Thor::Runner, Thor::Group]
+    klasses -= JekyllAndHyde::Group.ancestors
     raise Error, "No JekyllAndHyde tasks available" if klasses.empty?
 
     list = Hash.new { |h, k| h[k] = [] }

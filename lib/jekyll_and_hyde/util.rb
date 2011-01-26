@@ -6,8 +6,7 @@ module JekyllAndHyde
       end
 
       def find_class_and_task_by_namespace(task_name)
-        task_name = "#{JekyllAndHyde.namespace}:#{task_name}" unless task_name.include?(":")
-        Thor::Util.find_class_and_task_by_namespace(task_name)
+        Thor::Util.find_class_and_task_by_namespace(JekyllAndHyde.to_namespace(task_name))
       end
     end
   end
