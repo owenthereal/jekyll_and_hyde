@@ -37,7 +37,7 @@ class JekyllAndHyde::Runner < Thor
 
   def start_task(klass, task, args)
     if klass.nil?
-      say "Don't know how to build task '#{task.split(":").last}'."
+      say "Don't know how to build task '#{JekyllAndHyde.trim_namespace(task)}'."
     else
       klass.start(args, :shell => self.shell)
     end

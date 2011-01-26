@@ -8,5 +8,9 @@ module JekyllAndHyde
       str = "#{namespace}:#{str}" unless str.include?(':')
       str
     end
+
+    def trim_namespace(str)
+      str.gsub("#{namespace}:", "")
+    end
   end
 end
