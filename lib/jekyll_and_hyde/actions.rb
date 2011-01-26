@@ -6,7 +6,7 @@ module JekyllAndHyde
 
     def run_command(command, config={})
       result = run(command, config)
-      raise "Errors occured when running command \"#{command}\"." unless result
+      raise Error, "Errors occured when running command \"#{command}\"." unless result
     end
 
     def say_status(status, message, log_status=true)
