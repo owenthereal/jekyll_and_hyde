@@ -1,7 +1,7 @@
 module JekyllAndHyde
   module ThorExt
     def self.included(base)
-      base.extend JekyllAndHyde::ThorExt
+      base.extend JekyllAndHyde::ThorExt::ClassMethods
     end
 
     module ClassMethods

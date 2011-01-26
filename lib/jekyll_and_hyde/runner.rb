@@ -10,7 +10,7 @@ class JekyllAndHyde::Runner < Thor
     end
   end
 
-  desc "list [SEARCH]", "List the available jekyll_and_hyde tasks (--substring means .*SEARCH)"
+  desc "list [SEARCH]", "List the available jekyll_and_hyde tasks by an optional [SEARCH] string."
 
   def list(search="")
     search = /^.*#{JekyllAndHyde.to_namespace(search)}.*/i
