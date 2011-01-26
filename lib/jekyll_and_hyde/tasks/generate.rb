@@ -6,9 +6,14 @@ module JekyllAndHyde
 
     SUPPORT_FORMATS = %W{markdown md textile}
 
+    def validate_current_folder
+      self.class.source_root(destination_root)
+      find_in_source_paths("_config.yml")
+    end
+
     def create_slide
       format = options[:format]
-      raise "Unsupport format #{format}, --format=#{SUPPORT_FORMATS.join(",")}." unless SUPPORT_FORMATS.include?(format)
+      raise Error, "Unsupport format #{format}, --format=#{SUPPORT_FORMATS.join(",")}." unless SUPPORT_FORMATS.include?(format)
       create_file File.join("_posts", "#{timestamp}-#{title}.#{format}")
     end
 
