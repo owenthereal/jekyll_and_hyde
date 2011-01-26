@@ -7,6 +7,7 @@ require 'jekyll_and_hyde/core_ext/string'
 
 require 'jekyll_and_hyde/version'
 require 'jekyll_and_hyde/namespace'
+require 'jekyll_and_hyde/actions'
 require 'jekyll_and_hyde/util'
 require 'jekyll_and_hyde/tasks/new'
 require 'jekyll_and_hyde/runner'
