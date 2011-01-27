@@ -23,7 +23,7 @@ Combining Jekyll and Slippy can provide a powerful yet simple solution to create
 
 ## Generation:
 
-	> jh new my_slides --github # "--github" means setting up branching information for GitHub Pages as well
+	> jh new my_slides --github # the "--github" flag means setting up branching information for GitHub Pages as well
 	> cd my_slides
 	> jh generate first-slide
 
