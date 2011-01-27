@@ -25,7 +25,7 @@ Combining Jekyll and Slippy can provide a powerful yet simple solution to create
 
 	> jh new my_slides --github
 	> cd my_slides
-	> jh generate first-slide
+	> jh generate my-first-slide
 
 The "--github" flag in "jh new" means setting up branching information for GitHub Pages as well.
 
