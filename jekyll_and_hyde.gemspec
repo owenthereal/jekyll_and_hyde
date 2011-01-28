@@ -14,6 +14,8 @@ Gem::Specification.new do |s|
 
   s.rubyforge_project = "jekyll_and_hyde"
 
+  s.requirements = ["git 1.6.0.0, or greater"]
+
   s.add_dependency('thor')
 
   s.add_development_dependency('rspec')
