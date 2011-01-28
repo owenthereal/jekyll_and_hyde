@@ -1,5 +1,5 @@
 module JekyllAndHyde
-  class New < JekyllAndHyde::Group
+  class New < JekyllAndHyde::GroupTask
     JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO = 'git://github.com/jingweno/jekyll_and_hyde_template.git'
     SLIPPY_GIT_REPO = 'git://github.com/jingweno/slippy.git'
 
@@ -63,6 +63,10 @@ module JekyllAndHyde
       say "-" * next_step_string.size
       say 'git remote add origin git@github.com:your_github_username/your_git_repo.git'
       say 'git push origin gh-pages'
+    end
+
+    def inside_app_path(config = {}, &block)
+      inside app_path, config, &block
     end
   end
 end

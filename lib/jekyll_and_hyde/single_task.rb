@@ -1,6 +1,5 @@
 module JekyllAndHyde
-  class Group < Thor::Group
-    include JekyllAndHyde::ThorExt
+  class SingleTask < Thor
     include Thor::Actions
     include JekyllAndHyde::Actions
   end

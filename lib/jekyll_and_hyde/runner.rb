@@ -50,11 +50,11 @@ class JekyllAndHyde::Runner < Thor
   # Display information about the given klasses. If with_module is given,
   # it shows a table with information extracted from the yaml file.
   def display_klasses(klasses=Thor::Base.subclasses)
-    klasses -= JekyllAndHyde::Group.ancestors
+    klasses -= JekyllAndHyde::GroupTask.ancestors
     raise Error, "No JekyllAndHyde tasks available" if klasses.empty?
 
     list = Hash.new { |h, k| h[k] = [] }
-    groups = klasses.select { |k| k.ancestors.include?(Thor::Group) }
+    groups = klasses.select { |k| k.ancestors.include?(Thor::GroupTask) }
 
     # Get classes which inherit from Thor
     (klasses - groups).each { |k| list[k.namespace.split(":").first] += k.printable_tasks(false) }

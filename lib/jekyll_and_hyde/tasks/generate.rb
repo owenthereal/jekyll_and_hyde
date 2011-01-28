@@ -1,5 +1,5 @@
 module JekyllAndHyde
-  class Generate < JekyllAndHyde::Group
+  class Generate < JekyllAndHyde::GroupTask
     argument :title, :type => :string, :required => true, :desc => "The title of the slide."
     class_option :format, :type => :string, :default => 'markdown', :desc => 'The format of the slide. It supports markdown and textile.'
     desc "Generate a slide using the defined template."
