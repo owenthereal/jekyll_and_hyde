@@ -12,7 +12,7 @@ Slippy is HTML presentation library written with jQuery that takes a HTML file i
 
 # Why?
 
-Combining Jekyll and Slippy can provide a powerful yet simple solution to create presentations: you use the jekyll_and_hyde gem to generate a Jekyll scaffold with Slippy properly hooking up; you write your slides using Makrdown or Textile; then you publish your slides by pushing it to a Git repository.
+Combining Jekyll and Slippy can provide a powerful yet simple solution to create presentations: use the jekyll_and_hyde gem to generate a Jekyll template with Slippy properly integrated; write slides with Makrdown or Textile; publish slides by pushing it to a Git repository, present slides in a browser.
 
 # How?
 
