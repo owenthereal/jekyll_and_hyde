@@ -36,6 +36,10 @@ The "--github" optional flag in "jh new" means setting up branching information 
 
 The "github" task is to set up branching information for GitHub Pages. The "list" task is to list the available tasks by giving it an optional SEARCH terms. The "help" is to display the usage for a specific task.
 
+# Demo
+
+<http://owenou.com/jekyll_and_hyde_demo>
+
 # License
 
 MIT License. Details see LICENSE.
