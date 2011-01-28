@@ -18,7 +18,6 @@ Combining Jekyll and Slippy can provide a powerful yet simple solution to create
 
 ## Installation:
 
-	> gem install jekyll
 	> gem install jekyll_and_hyde
 
 ## Generation:
