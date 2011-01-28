@@ -6,9 +6,8 @@ module JekyllAndHyde
 
     SUPPORT_FORMATS = %W{markdown md textile}
 
-    def validate_current_folder
-      self.class.source_root(destination_root)
-      find_in_source_paths("_config.yml")
+    def validate_current_installation
+      validate_installation
     end
 
     def create_slide

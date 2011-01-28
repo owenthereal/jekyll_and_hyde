@@ -37,7 +37,7 @@ class JekyllAndHyde::Runner < Thor
 
   def start_task(klass, task, args)
     if klass.nil?
-      say "Don't know how to build task '#{JekyllAndHyde.trim_namespace(task)}'."
+      say "Don't know how to run task '#{JekyllAndHyde.trim_namespace(task)}'."
     else
       klass.start(args, :shell => self.shell)
     end
@@ -54,7 +54,7 @@ class JekyllAndHyde::Runner < Thor
     raise Error, "No JekyllAndHyde tasks available" if klasses.empty?
 
     list = Hash.new { |h, k| h[k] = [] }
-    groups = klasses.select { |k| k.ancestors.include?(Thor::GroupTask) }
+    groups = klasses.select { |k| k.ancestors.include?(JekyllAndHyde::GroupTask) }
 
     # Get classes which inherit from Thor
     (klasses - groups).each { |k| list[k.namespace.split(":").first] += k.printable_tasks(false) }
