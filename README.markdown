@@ -27,13 +27,15 @@ Combining Jekyll and Slippy can provide a powerful yet simple solution to create
 	> cd my_slides
 	> jh generate my-first-slide
 
-The "--github" flag in "jh new" means setting up branching information for GitHub Pages as well.
+The "--github" optional flag in "jh new" means setting up branching information for GitHub Pages.
 
 ## Other tasks:
-	
+
+	> jh github
 	> jh list [SEARCH]
 	> jh help [TASK]
-  
+
+The "github" task is to set up branching information for GitHub Pages. The "list" task is to list the available tasks by giving it an optional SEARCH terms. The "help" is to display the usage for a specific task.
 
 # License
 
