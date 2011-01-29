@@ -14,7 +14,8 @@ module JekyllAndHyde
       self.shell.set_color(string, color, bold)
     end
 
-    def validate_installation
+    def validate_installation(message="Validating installation...")
+      say message
       self.class.source_root(destination_root)
       find_in_source_paths("_config.yml")
     end
