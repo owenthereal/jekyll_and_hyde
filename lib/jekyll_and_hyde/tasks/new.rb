@@ -5,6 +5,7 @@ module JekyllAndHyde
 
     argument :app_path, :type => :string, :required => true, :desc => "The app path to generate the skeletal installation"
     class_option :github, :type => :boolean, :desc => "Create branching information for GitHub Project Pages, details in http://pages.github.com/."
+    class_option :template, :type => :string, :default => JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO, :desc => "The Git repository of the generated Jekyll template to download."
     desc "Generate a skeletal jekyll_and_hyde installation in [APP_PATH]."
 
     def make_app_path_dir
@@ -14,7 +15,7 @@ module JekyllAndHyde
     # TODO: pass in the url as parameter
     def git_clone_template
       inside_app_path do
-        run_command "git clone #{JEKYLL_AND_HYDE_TEMPLATE_GIT_REPO} ."
+        run_command "git clone #{options[:template]} ."
         remove_file('.git')
       end
     end
