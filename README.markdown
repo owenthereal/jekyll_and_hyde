@@ -26,7 +26,7 @@ Combining Jekyll and Slippy can provide a powerful yet simple solution to create
 	> cd my_slides
 	> jh generate my-first-slide
 
-There are two options on the "new" task. The "--github" flag is to set up a branch for GitHub Pages, details in <http://pages.github.com/>. The "--template" option is to define the Git repository of the generated Jekyll template to download, by default, "--template=git://github.com/jingweno/jekyll_and_hyde_template.git". 
+There are two options on the "new" task. The "--github" flag is to set up a branch for GitHub Pages, details in <http://pages.github.com/>. The "--template" option is to define the Git repository of the generated Jekyll template to download, by default, the value is git://github.com/jingweno/jekyll_and_hyde_template.git. 
 
 ## Other tasks:
 
