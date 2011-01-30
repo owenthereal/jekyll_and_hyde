@@ -40,6 +40,10 @@ The "github" task is to set up branching information for GitHub Pages. The "list
 
 <http://owenou.com/jekyll_and_hyde_demo>
 
+# Tutorial
+
+<http://vimeo.com/jingwenowenou/cook-up-presentations-with-jekyllandhyde>
+
 # License
 
 MIT License. Details see LICENSE.
