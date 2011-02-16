@@ -1,6 +1,6 @@
 # JekyllAndHyde
 
-JekyllAndHyde is a HTML presentation generator that generates a basic [Jekyll][1] scaffold with [Slippy][2] hooking up.
+JekyllAndHyde is a HTML presentation generator that combines the simplicity of website generation via [Jekyll][1] with jQuery's [Slippy][2] presentation library. Together they create a super-simple, GitHub Pages-compatible slideshow platform in Ruby.
 
 # Jekyll
 
@@ -12,7 +12,7 @@ Slippy is HTML presentation library written with jQuery that takes a HTML file i
 
 # Why?
 
-Combining Jekyll and Slippy can provide a powerful yet simple solution to create presentations: use the jekyll_and_hyde gem to generate a Jekyll template with Slippy properly integrated; write slides with Makrdown or Textile; publish slides by pushing it to a Git repository, present slides in a browser.
+Combining Jekyll and Slippy can provide a powerful yet simple solution to create presentations: use the jekyll_and_hyde gem to generate a Jekyll template with Slippy properly integrated; write slides with Makrdown or Textile; publish slides by pushing it to a Git repository; present slides on a browser.
 
 # How?
 
@@ -26,7 +26,7 @@ Combining Jekyll and Slippy can provide a powerful yet simple solution to create
 	> cd my_slides
 	> jh generate my-first-slide
 
-There are two options on the "new" task: the "--github" flag is to set up a branch for GitHub Pages during generation, which is the same as calling "jh github"; the "--template" option is to define the Git repository of the generated Jekyll template to download, by default, the value is git://github.com/jingweno/jekyll_and_hyde_template.git. 
+There are two options coming with the "new" task: the "--github" flag is to set up a branch for GitHub Pages during generation, which is the same as calling "jh github"; the "--template" option is to define the Git repository of the generated Jekyll template to download, by default, the value is git://github.com/jingweno/jekyll_and_hyde_template.git. 
 
 ## Other tasks:
 
@@ -43,6 +43,10 @@ The "github" task is to set up branching information for GitHub Pages. The "list
 # Screencast
 
 <http://vimeo.com/jingwenowenou/cook-up-presentations-with-jekyllandhyde>
+
+# News
+
+<http://ruby5.envylabs.com/episodes/151-episode-148-february-8-2011>
 
 # License
 
