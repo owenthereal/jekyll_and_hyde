@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email       = ["owen@owenou.com"]
   s.homepage    = "http://github.com/jingweno/jekyll_and_hyde"
   s.summary     = %q{A simple HTML presentation generator based on jekyll and slippy.}
-  s.description = %q{JekyllAndHyde is a HTML presentation generator that generates a basic Jekyll scaffold with Slippy hooking up.}
+  s.description = %q{JekyllAndHyde combined the simplicity of website generation via Jekyll with jQuery's Slippy presentation library. Together they create a super-simple, GitHub Pages-compatible slideshow platform in Ruby.}
 
   s.rubyforge_project = "jekyll_and_hyde"
 
